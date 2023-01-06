@@ -2,11 +2,13 @@
   background-color: #6200EE;
   color: white;
   font-size: 2.5rem;
-  width: 100%`;
+  height: 6vh;
+  width: 100vw;
 }
 .sidebar {
-  background-color: lightgrey;
-  height: 100vh;
+  background-color: #EBEEEF;
+  height: calc(100vh - 6vh);
 }
-.sidebar-list mat-list-item:hover {
+mat-icon {
+  margin: 0.3em;
 }
