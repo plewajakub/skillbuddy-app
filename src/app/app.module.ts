@@ -8,16 +8,23 @@ import {MatCommonModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatRippleModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { MainpanelComponent } from './mainpanel/mainpanel.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { GeneralDisplayComponent } from './components/general-display/general-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    MainpanelComponent,
+    LoginpageComponent,
+    GeneralDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     MatCommonModule,
     MatListModule,
     MatRippleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
