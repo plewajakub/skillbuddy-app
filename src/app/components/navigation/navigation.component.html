@@ -1,20 +1,23 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    Navbar
-    <button class="btn btn-outline-light me-2">Account</button>
+    SkillBuddy
+    <button class="btn btn-outline-light me-2">Log Out</button>
   </div>
 </nav>
 <div class="row container">
   <div class="col-2 sidebar">
+    <img class="my-2" src="favicon.ico">
+    <mat-divider></mat-divider>
     <mat-nav-list class="sidebar-list" role="list">
       <a href=""><mat-list-item  role="listitem"><mat-icon>home</mat-icon>Home</mat-list-item></a>
       <a href=""><mat-list-item role="listitem"><mat-icon>hiking</mat-icon>Goals</mat-list-item></a>
       <a href=""><mat-list-item role="listitem"><mat-icon>checklist</mat-icon>Your progress</mat-list-item></a>
     </mat-nav-list>
   </div>
-  <div class="col">
-    <router-outlet></router-outlet>
+  <div class="col routerDisplay">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
+
 
 

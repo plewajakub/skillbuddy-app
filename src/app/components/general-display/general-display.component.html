@@ -1,1 +1,37 @@
-<p>general-display works!</p>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-5">
+        <mat-card class="my-3">
+          <mat-card-header>
+            <mat-card-title>Welcome, User!</mat-card-title>
+            <mat-card-subtitle>Let's achieve greatness together!</mat-card-subtitle>
+          </mat-card-header>
+          <img class="card-photo" mat-card-image src="assets/mountains-stock.jpg" alt="mountains"/>
+          <mat-card-content>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+          <mat-card-footer>
+          </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="col-7">
+      <mat-card *ngIf="weatherLoaded" class="my-3">
+        <mat-card-header>
+          <mat-card-title>{{weatherData.location.name}}, {{weatherData.location.country}} </mat-card-title>
+          <mat-card-subtitle>What's the weather like today?</mat-card-subtitle>
+        </mat-card-header>
+        <img class="card-photo card-photo-weather" mat-card-image src="assets/mountains-stock-2.jpg" alt="mountains"/>
+          <div class="bar-over-photo"></div>
+        <mat-card-content class="text-over-photo">
+          <p><img src="{{weatherData.current.condition.icon}}"> {{weatherData.current.condition.text}}, {{weatherData.current.temp_c}}°C  </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+
