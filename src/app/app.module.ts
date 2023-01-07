@@ -9,6 +9,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatRippleModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MainpanelComponent } from './mainpanel/mainpanel.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { GeneralDisplayComponent } from './components/general-display/general-display.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { GeneralDisplayComponent } from './components/general-display/general-di
     MatListModule,
     MatRippleModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

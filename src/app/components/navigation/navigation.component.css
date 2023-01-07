@@ -2,13 +2,16 @@
   background-color: #6200EE;
   color: white;
   font-size: 2.5rem;
-  height: 6vh;
-  width: 100vw;
 }
 .sidebar {
   background-color: #EBEEEF;
   height: calc(100vh - 6vh);
+  font-size: 1em;
+  height: 100%;
 }
 mat-icon {
   margin: 0.3em;
+}
+.container, .row, .col {
+  height: 100%;
 }
