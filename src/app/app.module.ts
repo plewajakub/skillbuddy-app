@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatCommonModule} from '@angular/material/core';
-import {MatListModule} from '@angular/material/list';
-import {MatRippleModule} from '@angular/material/core';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCommonModule } from '@angular/material/core';
+import { MatListModule } from '@angular/material/list';
+import { MatRippleModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +19,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { MainpanelComponent } from './mainpanel/mainpanel.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { GeneralDisplayComponent } from './components/general-display/general-display.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { firebaseConfig } from '../config';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
     NavigationComponent,
     MainpanelComponent,
     LoginpageComponent,
-    GeneralDisplayComponent
+    GeneralDisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +46,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: firebaseConfig }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
