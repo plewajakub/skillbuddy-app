@@ -3,11 +3,11 @@
 <div *ngIf="auth.user$ | async as user; else login">
    {{user | json}}
   <hr>
-  <button class="button" (click)="auth.googleSignOut()">Sign Out</button>
+  <button class="button" (click)="auth.signOut()">Sign Out</button>
 </div>
 <ng-template #login>
   <button class="button" (click)="auth.googleSignin()">Login with Google</button>
-
+  <button class="button" (click)="auth.facebookSignIn()">Login with Facebook</button>
 </ng-template>
 
 <router-outlet></router-outlet>

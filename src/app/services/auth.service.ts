@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { signOut, updateCurrentUser, updatePassword } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { getCookie, removeCookie, setCookie } from 'typescript-cookie'
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../config';
@@ -51,9 +52,12 @@ export class AuthService {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        const uid = result.user.uid;
-        const email = result.user.email;
+        const googleCreds = {
+          "accessToken": credential?.accessToken || "undefined",
+          "secret": credential?.secret,
+          "user": result.user,
+        };
+        setCookie('googleCreds', JSON.stringify(googleCreds));
       }).catch((error) => {
         return {
           'code': error.code,
@@ -63,17 +67,38 @@ export class AuthService {
         }
     })
   }
-  googleSignOut() {
+  signOut() {
     const auth = getAuth();
     signOut(auth).then(() => {
-      sessionStorage.clear();
+      if(getCookie('googleCreds') != undefined) {
+        removeCookie('googleCreds');
+      }
+      if(getCookie('facebookCreds') != undefined) {
+        removeCookie('facebookCreds');
+      }
       return this.router.navigate(['/']);
     }).catch((error) => {
       return error.code
     });
   }
 
-  // async facebookSignIn() {
-  //
-  // }
+  async facebookSignIn() {
+    const firebaseApp = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    firebase.auth().useDeviceLanguage();
+    const provider = new FacebookAuthProvider();
+    provider.setCustomParameters({'display': 'popup'});
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const facebookCreds = {
+          "accessToken": credential?.accessToken,
+          "secret": credential?.secret,
+          "user": result.user,
+        };
+        setCookie('facebookCreds', JSON.stringify(facebookCreds));
+      }).catch((error) =>{
+
+    })
+  }
 }
