@@ -1,6 +1,6 @@
 <div class="container my-3">
   <div class="row">
-    <div class="col-5">
+    <div class="col-sm-12 col-md">
         <mat-card class="my-3">
           <mat-card-header>
             <mat-card-title>Welcome, User!</mat-card-title>
@@ -14,7 +14,7 @@
           </mat-card-footer>
         </mat-card>
     </div>
-    <div class="col-7">
+    <div class="col-sm-12 col-md">
       <mat-card *ngIf="weatherLoaded" class="my-3">
         <mat-card-header>
           <mat-card-title>{{weatherData.location.name}}, {{weatherData.location.country}} </mat-card-title>

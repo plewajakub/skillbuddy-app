@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainpanel.component.css']
 })
 export class MainpanelComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
