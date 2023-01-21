@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router'
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { signOut, updateCurrentUser, updatePassword } from "@angular/fire/auth";
+import {signOut, updateCurrentUser, updatePassword, user} from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { getCookie, removeCookie, setCookie } from 'typescript-cookie'
 
@@ -44,7 +44,7 @@ export class AuthService {
     )
   }
 
-  async googleSignin() {
+  async googleSignIn() {
     const firebaseApp = initializeApp(firebaseConfig);
     const auth = getAuth();
     firebase.auth().useDeviceLanguage();
@@ -52,12 +52,26 @@ export class AuthService {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const googleCreds = {
+        const userInfo = result.user;
+        userInfo.metadata.lastSignInTime;
+        const googleInfo = {
           "accessToken": credential?.accessToken || "undefined",
           "secret": credential?.secret,
-          "user": result.user,
+          "uid": userInfo.uid,
+          "email": userInfo.email,
+          "displayName": userInfo.displayName,
+          "photoURL": userInfo.photoURL,
         };
-        setCookie('googleCreds', JSON.stringify(googleCreds));
+        if(!userInfo.emailVerified) {
+          this.router.navigate(
+            ['/'],
+            { queryParams: { emailVerified: '0' } }
+          )
+        } else {
+          this.router.navigate(['/home'])
+        }
+        setCookie('googleInfo', JSON.stringify(googleInfo), {expires: 420});
+        console.log(googleInfo)
       }).catch((error) => {
         return {
           'code': error.code,

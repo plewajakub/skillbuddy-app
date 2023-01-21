@@ -1,13 +1,32 @@
-<p>loginpage works!</p>
-<a href="/home">home</a>
-<div *ngIf="auth.user$ | async as user; else login">
-   {{user | json}}
-  <hr>
-  <button class="button" (click)="auth.signOut()">Sign Out</button>
+
+<link rel="stylesheet" href="loginpage.component.css"><p>loginpage works!</p>
+<div class="sign-in">
+  <a href="/home">home</a>
+  <div *ngIf="auth.user$ | async as user; else login">
+     {{user | json}}
+    <hr>
+    <button class="button" (click)="auth.signOut()">Sign Out</button>
+  </div>
+  <ng-template #login >
+    <div class="d-flex flex-column align-items-center gap-4 back">
+      <div class="siw">
+        <p>or Sign in with:</p>
+      </div>
+      <div class="d-flex flex-row align-items-center justify-content-center gap-3">
+        <div class="d-flex align-items-center di-google">
+          <button class="btn btn-google btn-provider d-flex align-items-center"  (click)="auth.googleSignIn()">
+            <img class="icon-google" alt="Google sign-in" src="/assets/google-logo-color.png" />
+            <img class="icon-google-white" alt="Google sign-in" src="/assets/google-logo-white.png" />
+          </button>
+        </div>
+        <div class="container-facebook">
+          <button class="btn blob-btn btn-facebook btn-provider d-flex align-items-center" (click)="auth.facebookSignIn()" >
+            <img class="icon-facebook"  alt="Google sign-in" src="assets/icons-facebook-logo.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>
-<ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">Login with Google</button>
-  <button class="button" (click)="auth.facebookSignIn()">Login with Facebook</button>
-</ng-template>
 
 <router-outlet></router-outlet>
