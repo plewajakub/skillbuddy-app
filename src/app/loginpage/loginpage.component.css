@@ -32,16 +32,26 @@
   transition: 0.7s;
 }
 
-.btn-google:hover, .btn-google:focus, cli {
+.btn-google:hover, .btn-google:focus {
   transition: 0.7s;
   background: url("/assets/google-logo.jpg");
   background-position: center;
 }
-.btn-google:hover .icon-google, .btn-google:focus .icon-google, cli .icon-google {
+.btn-google:hover .icon-google, .btn-google:focus .icon-google {
   transition: 0.7s;
   display: none;
 }
-.btn-google:hover .icon-google-white, .btn-google:focus .icon-google-white, cli .icon-google-white {
+.btn-google:hover .icon-google-white, .btn-google:focus .icon-google-white {
   display: block;
   transition: 0.7s;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+  transition: 0.6s;
+  background: url("/assets/facebook-logo.jpg");
+  background-position: center;
+}
+.btn-facebook:hover .icon-facebook, .btn-facebook:focus .icon-facebook {
+  transition: 0.6s;
+  display: none;
 }/*# sourceMappingURL=loginpage.component.css.map */
