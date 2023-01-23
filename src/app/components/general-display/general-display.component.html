@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md">
         <mat-card class="my-3">
           <mat-card-header>
-            <mat-card-title>Welcome, User!</mat-card-title>
+            <mat-card-title>Welcome, {{ cookie.displayName }}!</mat-card-title>
             <mat-card-subtitle>Let's achieve greatness together!</mat-card-subtitle>
           </mat-card-header>
           <img class="card-photo" mat-card-image src="assets/mountains-stock.jpg" alt="mountains"/>
@@ -15,6 +15,9 @@
         </mat-card>
     </div>
     <div class="col-sm-12 col-md">
+    <mat-card *ngIf="!weatherLoaded">
+      <mat-spinner style="margin: auto;"></mat-spinner>
+    </mat-card>
       <mat-card *ngIf="weatherLoaded" class="my-3">
         <mat-card-header>
           <mat-card-title>{{weatherData.location.name}}, {{weatherData.location.country}} </mat-card-title>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
+import { getCookie } from "typescript-cookie";
 
 @Component({
   selector: 'app-loginpage',
@@ -10,7 +11,6 @@ export class LoginpageComponent implements OnInit {
 
   constructor(public auth: AuthService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

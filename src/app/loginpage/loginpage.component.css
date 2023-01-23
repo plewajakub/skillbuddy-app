@@ -1,0 +1,47 @@
+.siw p {
+  margin: 0;
+  font-size: x-large;
+}
+
+.btn-provider {
+  padding: 0.5rem 1rem;
+  transition: 0.5s;
+  background-color: #FFF;
+  margin: 0px;
+}
+
+.icon-facebook {
+  border-radius: 100%;
+}
+
+.btn-provider > img {
+  height: 30px;
+}
+
+.btn-google {
+  transition: 0.7s;
+}
+
+.icon-google-white {
+  position: relative;
+  transition: 0.7s;
+  display: none;
+}
+
+.icon-google {
+  transition: 0.7s;
+}
+
+.btn-google:hover, .btn-google:focus, cli {
+  transition: 0.7s;
+  background: url("/assets/google-logo.jpg");
+  background-position: center;
+}
+.btn-google:hover .icon-google, .btn-google:focus .icon-google, cli .icon-google {
+  transition: 0.7s;
+  display: none;
+}
+.btn-google:hover .icon-google-white, .btn-google:focus .icon-google-white, cli .icon-google-white {
+  display: block;
+  transition: 0.7s;
+}/*# sourceMappingURL=loginpage.component.css.map */

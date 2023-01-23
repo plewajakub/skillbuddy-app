@@ -1,0 +1,51 @@
+$large: x-large;
+$googleTransition: .7s;
+$facebookTrasition: .6s;
+
+.siw p{
+  margin: 0;
+  font-size: $large;
+}
+.btn-provider {
+  padding: 0.5rem 1rem;
+  transition: .5s;
+  background-color: #FFF;
+  margin: 0px;
+}
+// .btn-facebook:hover, .btn-facebook:focus{
+//   background-color: #3b5998;
+//   color: white;
+//   transition: $facebookTrasition;
+// }
+.icon-facebook{
+  border-radius: 100%;
+}
+.btn-provider > img {
+  height: 30px;
+}
+.btn-google{
+  transition: $googleTransition;
+}
+.icon-google-white{
+  position: relative;
+  transition: $googleTransition;
+  display: none;
+}
+.icon-google{
+  transition: $googleTransition;
+}
+
+.btn-google:hover, .btn-google:focus, cli{
+    transition: $googleTransition;
+    background: url('/assets/google-logo.jpg');
+    background-position: center;
+
+    .icon-google{
+      transition: $googleTransition;
+      display: none;
+    }
+    .icon-google-white{
+      display: block;
+      transition: $googleTransition;
+    }
+}
