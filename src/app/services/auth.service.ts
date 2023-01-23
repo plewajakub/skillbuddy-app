@@ -71,7 +71,6 @@ export class AuthService {
           this.router.navigate(['/home'])
         }
         setCookie('googleInfo', JSON.stringify(googleInfo), {expires: 420});
-        console.log(googleInfo)
       }).catch((error) => {
         return {
           'code': error.code,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { getCookie } from 'typescript-cookie';
 
 @Component({
   selector: 'app-general-display',
@@ -10,12 +11,16 @@ export class GeneralDisplayComponent implements OnInit {
   ipAddress = '';
   weatherData: any;
   weatherLoaded: boolean = false;
+  cookie: any = JSON.parse(<string>getCookie('googleInfo'));
   constructor(private http:HttpClient) {
 
   }
 
   ngOnInit(): void {
+
     this.getWeatherGeoData();
+    this.cookie;
+    console.log(this.cookie)
   }
 
   getWeatherGeoData()
