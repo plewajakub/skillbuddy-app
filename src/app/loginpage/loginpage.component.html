@@ -7,7 +7,7 @@
     <hr>
     <button class="button" (click)="auth.signOut()">Sign Out</button>
   </div>
-  <ng-template #login >
+  <ng-template #login class="signInComponent">
     <div class="d-flex flex-column align-items-center gap-4 back">
       <div class="siw">
         <p>or Sign in with:</p>
@@ -21,7 +21,8 @@
         </div>
         <div class="container-facebook">
           <button class="btn blob-btn btn-facebook btn-provider d-flex align-items-center" (click)="auth.facebookSignIn()" >
-            <img class="icon-facebook"  alt="Google sign-in" src="assets/icons-facebook-logo.png" />
+            <img class="icon-facebook"  alt="Google sign-in" src="assets/facebook-logo.png" />
+            <img class="icon-facebook-white" src="assets/facebook-logo-white.png" alt="">
           </button>
         </div>
       </div>

@@ -1,7 +1,9 @@
 $large: x-large;
 $googleTransition: .7s;
 $facebookTrasition: .6s;
-
+.signInComponent{
+  background-color: #6200EE;
+}
 .siw p{
   margin: 0;
   font-size: $large;
@@ -12,13 +14,12 @@ $facebookTrasition: .6s;
   background-color: #FFF;
   margin: 0px;
 }
-// .btn-facebook:hover, .btn-facebook:focus{
-//   background-color: #3b5998;
-//   color: white;
-//   transition: $facebookTrasition;
-// }
+.btn-facebook{
+  background-color: #3b5998;
+}
 .icon-facebook{
-  border-radius: 100%;
+  position: relative;
+  display: none;
 }
 .btn-provider > img {
   height: 30px;
@@ -49,13 +50,18 @@ $facebookTrasition: .6s;
       transition: $googleTransition;
     }
 }
+.icon-facebook,.icon-facebook-white{
+  padding: 0 .5rem;
+  transition: $facebookTrasition;
+}
 .btn-facebook:hover, .btn-facebook:focus{
-    transition: $facebookTrasition;
-    background: url('/assets/facebook-logo.jpg');
-    background-position: center;
-
-    .icon-facebook{
-      transition: $facebookTrasition;
-      display: none;
-    }
+  transition: $facebookTrasition;
+  background-color: white;
+  .icon-facebook-white{
+    display: none;
+  }   
+  .icon-facebook{
+    display: block;
+  }
+    
 }
