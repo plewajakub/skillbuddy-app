@@ -1,13 +1,61 @@
 $large: x-large;
 $googleTransition: .7s;
 $facebookTrasition: .6s;
+
+
+.sign-in{
+  height: 100%;
+}
 .signInComponent{
-  background-color: #6200EE;
+  margin: auto auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  width: fit-content;
+  box-shadow: 8px 8px 2px 1px rgba(0, 0, 0, .2);
 }
-.siw p{
+.sign-in-with p{
   margin: 0;
-  font-size: $large;
+  font-size: medium;
+  font-weight: 400;
 }
+label{
+  font-size: medium;
+  background-color: white;
+  position: relative;
+  font-weight: 700;
+  cursor: text;
+
+}
+input{
+  font-weight: 550;
+  width: 120%;
+  padding: .25rem;
+  border-radius: 1rem;
+  margin: .5rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .btn-provider {
   padding: 0.5rem 1rem;
   transition: .5s;
@@ -59,9 +107,9 @@ $facebookTrasition: .6s;
   background-color: white;
   .icon-facebook-white{
     display: none;
-  }   
+  }
   .icon-facebook{
     display: block;
   }
-    
+
 }

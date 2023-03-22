@@ -1,10 +1,37 @@
-.signInComponent {
-  background-color: #6200EE;
+.sign-in {
+  height: 100%;
 }
 
-.siw p {
+.signInComponent {
+  margin: auto auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-shadow: 8px 8px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sign-in-with p {
   margin: 0;
-  font-size: x-large;
+  font-size: medium;
+  font-weight: 400;
+}
+
+label {
+  font-size: medium;
+  background-color: white;
+  position: relative;
+  font-weight: 700;
+  cursor: text;
+}
+
+input {
+  font-weight: 550;
+  width: 120%;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  margin: 0.5rem 0;
 }
 
 .btn-provider {
