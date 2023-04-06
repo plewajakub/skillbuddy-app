@@ -9,13 +9,16 @@
   <ng-template #login>
     <div class="signInComponent d-flex flex-column align-items-center gap-4 back">
       <div class="d-flex flex-column align-items-center">
-        <div class="d-flex flex-column align-items-center login-fiels">
-          <label class="login-label" for="email">Email</label>
-          <input class="login-input" type="text" name="email" id="email">
+        <div class="d-flex flex-column login-fiels">
+          <input class="login-input" type="text" name="email" id="email" required placeholder="Email">
+          <label class="login-label " for="email">Email</label>
         </div>
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column login-fiels">
+          <input class="login-input" type="password" name="password" id="password" required placeholder="Password">
           <label class="login-label" for="password">Password</label>
-          <input class="login-input" type="password" name="password" id="password">
+        </div>
+        <div>
+          <input class="login-submit" type="submit" value="Create Account">
         </div>
         <!--<div class="d-flex flex-column align-items-center">
           <label for="repeat-password">Repeat Password</label>
@@ -39,6 +42,7 @@
           </button>
         </div>
       </div>
+    
     </div>
   </ng-template>
 </div>

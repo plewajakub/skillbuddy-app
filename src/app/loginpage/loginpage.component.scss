@@ -11,7 +11,7 @@ $facebookTrasition: .6s;
   padding: 2rem;
   background-color: white;
   border-radius: 1rem;
-  width: fit-content;
+  width: 500px;
   box-shadow: 8px 8px 2px 1px rgba(0, 0, 0, .2);
 }
 .sign-in-with p{
@@ -19,43 +19,20 @@ $facebookTrasition: .6s;
   font-size: medium;
   font-weight: 400;
 }
-label{
-  font-size: medium;
-  background-color: white;
-  position: relative;
-  font-weight: 700;
-  cursor: text;
-
+.login-label{
+  display: none;
 }
-input{
+.login-input{
   font-weight: 550;
-  width: 120%;
+  width: 100%;
   padding: .25rem;
+  padding-left: .5rem;
   border-radius: 1rem;
   margin: .5rem 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.login-fiels{
+  width: fit-content;
+}
 .btn-provider {
   padding: 0.5rem 1rem;
   transition: .5s;

@@ -7,8 +7,7 @@
   padding: 2rem;
   background-color: white;
   border-radius: 1rem;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 500px;
   box-shadow: 8px 8px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -18,20 +17,22 @@
   font-weight: 400;
 }
 
-label {
-  font-size: medium;
-  background-color: white;
-  position: relative;
-  font-weight: 700;
-  cursor: text;
+.login-label {
+  display: none;
 }
 
-input {
+.login-input {
   font-weight: 550;
-  width: 120%;
+  width: 100%;
   padding: 0.25rem;
+  padding-left: 0.5rem;
   border-radius: 1rem;
   margin: 0.5rem 0;
+}
+
+.login-fiels {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .btn-provider {
