@@ -1,30 +1,48 @@
 
-<link rel="stylesheet" href="loginpage.component.css"><p>loginpage works!</p>
-<div class="sign-in">
-  <a href="/home">home</a>
+<link rel="stylesheet" href="loginpage.component.css">
+<div class="sign-in d-flex">
   <div *ngIf="auth.user$ | async as user; else login">
      {{user | json}}
     <hr>
     <button class="button" (click)="auth.signOut()">Sign Out</button>
   </div>
-  <ng-template #login >
-    <div class="d-flex flex-column align-items-center gap-4 back">
-      <div class="siw">
+  <ng-template #login>
+    <div class="signInComponent d-flex flex-column align-items-center gap-4 back">
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column login-fiels">
+          <input class="login-input" type="text" name="email" id="email" required placeholder="Email">
+          <label class="login-label " for="email">Email</label>
+        </div>
+        <div class="d-flex flex-column login-fiels">
+          <input class="login-input" type="password" name="password" id="password" required placeholder="Password">
+          <label class="login-label" for="password">Password</label>
+        </div>
+        <div>
+          <input class="login-submit" type="submit" value="Create Account">
+        </div>
+        <!--<div class="d-flex flex-column align-items-center">
+          <label for="repeat-password">Repeat Password</label>
+          <input type="password" name="password" id="repeat-password">
+        </div>-->
+      </div>
+      <div class="sign-in-with">
         <p>or Sign in with:</p>
       </div>
       <div class="d-flex flex-row align-items-center justify-content-center gap-3">
         <div class="d-flex align-items-center di-google">
           <button class="btn btn-google btn-provider d-flex align-items-center"  (click)="auth.googleSignIn()">
-            <img class="icon-google" alt="Google sign-in" src="/assets/google-logo-color.png" />
-            <img class="icon-google-white" alt="Google sign-in" src="/assets/google-logo-white.png" />
+            <img class="icon-google" src="/assets/google-logo-color.png" alt="Google sign-in" />
+            <img class="icon-google-white" src="/assets/google-logo-white.png" alt="Google sign-in" />
           </button>
         </div>
         <div class="container-facebook">
           <button class="btn blob-btn btn-facebook btn-provider d-flex align-items-center" (click)="auth.facebookSignIn()" >
-            <img class="icon-facebook"  alt="Google sign-in" src="assets/icons-facebook-logo.png" />
+            <img class="icon-facebook" src="assets/facebook-logo.png" alt="Facebook sign-in" />
+            <img class="icon-facebook-white" src="assets/facebook-logo-white.png" alt="Facebook sign-in">
           </button>
         </div>
       </div>
+    
     </div>
   </ng-template>
 </div>

@@ -22,26 +22,25 @@ import { User } from './user.model'
 import firebase from "firebase/compat/app";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  user$: Observable<User | any>;
+  user$: Observable<User | unknown>;
 
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router
   ) {
-
     this.user$ = this.afAuth.authState.pipe(
-      mergeMap(user => {
+      mergeMap((user) => {
         if (!user) {
           return of(null);
-        }else {
+        } else {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         }
       })
-    )
+    );
   }
 
   async googleSignIn() {
@@ -55,44 +54,44 @@ export class AuthService {
         const userInfo = result.user;
         userInfo.metadata.lastSignInTime;
         const googleInfo = {
-          "accessToken": credential?.accessToken || "undefined",
-          "secret": credential?.secret,
-          "uid": userInfo.uid,
-          "email": userInfo.email,
-          "displayName": userInfo.displayName,
-          "photoURL": userInfo.photoURL,
+          accessToken: credential?.accessToken || 'undefined',
+          secret: credential?.secret,
+          uid: userInfo.uid,
+          email: userInfo.email,
+          displayName: userInfo.displayName,
+          photoURL: userInfo.photoURL,
         };
-        if(!userInfo.emailVerified) {
-          this.router.navigate(
-            ['/'],
-            { queryParams: { emailVerified: '0' } }
-          )
+        if (!userInfo.emailVerified) {
+          this.router.navigate(['/'], { queryParams: { emailVerified: '0' } });
         } else {
-          this.router.navigate(['/home'])
+          this.router.navigate(['/home']);
         }
-        setCookie('googleInfo', JSON.stringify(googleInfo), {expires: 420});
-      }).catch((error) => {
+        setCookie('googleInfo', JSON.stringify(googleInfo), { expires: 420 });
+      })
+      .catch((error) => {
         return {
-          'code': error.code,
-          'message': error.message,
-          'email': error.customData.email,
-          'credential': GoogleAuthProvider.credentialFromError(error)
-        }
-    })
+          code: error.code,
+          message: error.message,
+          email: error.customData.email,
+          credential: GoogleAuthProvider.credentialFromError(error),
+        };
+      });
   }
   signOut() {
     const auth = getAuth();
-    signOut(auth).then(() => {
-      if(getCookie('googleCreds') != undefined) {
-        removeCookie('googleCreds');
-      }
-      if(getCookie('facebookCreds') != undefined) {
-        removeCookie('facebookCreds');
-      }
-      return this.router.navigate(['/']);
-    }).catch((error) => {
-      return error.code
-    });
+    signOut(auth)
+      .then(() => {
+        if (getCookie('googleCreds') != undefined) {
+          removeCookie('googleCreds');
+        }
+        if (getCookie('facebookCreds') != undefined) {
+          removeCookie('facebookCreds');
+        }
+        return this.router.navigate(['/']);
+      })
+      .catch((error) => {
+        return error.code;
+      });
   }
 
   async facebookSignIn() {
@@ -100,18 +99,17 @@ export class AuthService {
     const auth = getAuth();
     firebase.auth().useDeviceLanguage();
     const provider = new FacebookAuthProvider();
-    provider.setCustomParameters({'display': 'popup'});
+    provider.setCustomParameters({ display: 'popup' });
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const facebookCreds = {
-          "accessToken": credential?.accessToken,
-          "secret": credential?.secret,
-          "user": result.user,
+          accessToken: credential?.accessToken,
+          secret: credential?.secret,
+          user: result.user,
         };
         setCookie('facebookCreds', JSON.stringify(facebookCreds));
-      }).catch((error) =>{
-
-    })
+      })
+      .catch((error) => {});
   }
 }

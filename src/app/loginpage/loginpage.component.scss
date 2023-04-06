@@ -2,9 +2,36 @@ $large: x-large;
 $googleTransition: .7s;
 $facebookTrasition: .6s;
 
-.siw p{
+
+.sign-in{
+  height: 100%;
+}
+.signInComponent{
+  margin: auto auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  width: 500px;
+  box-shadow: 8px 8px 2px 1px rgba(0, 0, 0, .2);
+}
+.sign-in-with p{
   margin: 0;
-  font-size: $large;
+  font-size: medium;
+  font-weight: 400;
+}
+.login-label{
+  display: none;
+}
+.login-input{
+  font-weight: 550;
+  width: 100%;
+  padding: .25rem;
+  padding-left: .5rem;
+  border-radius: 1rem;
+  margin: .5rem 0;
+}
+.login-fiels{
+  width: fit-content;
 }
 .btn-provider {
   padding: 0.5rem 1rem;
@@ -12,13 +39,12 @@ $facebookTrasition: .6s;
   background-color: #FFF;
   margin: 0px;
 }
-// .btn-facebook:hover, .btn-facebook:focus{
-//   background-color: #3b5998;
-//   color: white;
-//   transition: $facebookTrasition;
-// }
+.btn-facebook{
+  background-color: #3b5998;
+}
 .icon-facebook{
-  border-radius: 100%;
+  position: relative;
+  display: none;
 }
 .btn-provider > img {
   height: 30px;
@@ -35,7 +61,7 @@ $facebookTrasition: .6s;
   transition: $googleTransition;
 }
 
-.btn-google:hover, .btn-google:focus, cli{
+.btn-google:hover, .btn-google:focus{
     transition: $googleTransition;
     background: url('/assets/google-logo.jpg');
     background-position: center;
@@ -48,4 +74,19 @@ $facebookTrasition: .6s;
       display: block;
       transition: $googleTransition;
     }
+}
+.icon-facebook,.icon-facebook-white{
+  padding: 0 .5rem;
+  transition: $facebookTrasition;
+}
+.btn-facebook:hover, .btn-facebook:focus{
+  transition: $facebookTrasition;
+  background-color: white;
+  .icon-facebook-white{
+    display: none;
+  }
+  .icon-facebook{
+    display: block;
+  }
+
 }
